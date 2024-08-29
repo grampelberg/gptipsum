@@ -1,0 +1,58 @@
+[package]
+name = "llmipsum"
+version.workspace = true
+authors.workspace = true
+description = "SSH into a Kubernetes cluster"
+documentation.workspace = true
+license-file.workspace = true
+edition.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[workspace.package]
+version = "0.0.0-UNSTABLE"
+authors = ["Thomas Rampelberg <thomas@saunter.org>"]
+documentation = "https://github.com/grampelberg/llmipsum"
+edition = "2021"
+license-file = "LICENSE"
+repository = "https://github.com/grampelberg/llmipsum"
+keywords = ["llm"]
+categories = ["llm"]
+
+[dependencies]
+chrono = "0.4.38"
+clap = { version = "4.5.16", features = ["derive", "env"] }
+clio = { version = "0.3.5", features = ["clap", "clap-parse"] }
+eyre = "0.6.12"
+itertools = "0.13.0"
+rand = "0.8.5"
+reqwest = { version = "0.12.7", features = ["json"] }
+serde = { version = "1.0.209", features = ["derive"] }
+serde_json = "1.0.127"
+tokio = { version = "1.39.3", features = ["full"] }
+
+[lints]
+workspace = true
+
+[profile.dev]
+debug = 0
+split-debuginfo = "unpacked"
+
+[workspace.lints.rust]
+missing_docs = "warn"
+keyword-idents = "warn"
+let-underscore = "warn"
+rust-2024-compatibility = "warn"
+unused_crate_dependencies = "warn"
+
+[workspace.lints.clippy]
+multiple_crate_versions = "allow"
+cargo = { level = "warn", priority = -1 }
+complexity = { level = "warn", priority = -1 }
+correctness = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+perf = { level = "warn", priority = -1 }
+style = { level = "warn", priority = -1 }
+suspicious = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
